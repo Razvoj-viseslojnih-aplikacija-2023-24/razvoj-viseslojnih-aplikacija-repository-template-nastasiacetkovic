@@ -16,8 +16,8 @@ public class KorisnikUsluge implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@SequenceGenerator(name = "USLUGA_SEQ_GENERATOR", sequenceName="USLUGA_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USLUGA_SEQ_GENERATOR")
+	@SequenceGenerator(name = "KORISNIKUSLUGE_SEQ_GENERATOR", sequenceName="KORISNIKUSLUGE_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="KORISNIKUSLUGE_SEQ_GENERATOR")
 	private int id;
 	private String ime;
 	private String prezime;
