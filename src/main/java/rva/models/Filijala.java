@@ -45,10 +45,10 @@ public class Filijala implements Serializable{
 		this.brojPultova = brojPultova;
 		this.posedujeSef = posedujeSef;
 	}
-	public int getid() {
+	public int setId() {
 		return id;
 	}
-	public void setid(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getAdresa() {

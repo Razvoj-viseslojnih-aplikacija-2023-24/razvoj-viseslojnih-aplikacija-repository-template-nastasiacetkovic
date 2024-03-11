@@ -20,7 +20,7 @@ public class Usluga implements Serializable{
 	private int id;
 	private String naziv;
 	private String opisUsluge;
-	private int provizija;
+	private double provizija;
 	private Date datumUgovora;
 	
 	@ManyToOne
@@ -35,7 +35,7 @@ public class Usluga implements Serializable{
 		
 	}
 
-	public Usluga(int id, String naziv, String opisUsluge, int provizija, Date datumUgovora) {
+	public Usluga(int id, String naziv, String opisUsluge, double provizija, Date datumUgovora) {
 		super();
 		this.id = id;
 		this.naziv = naziv;
@@ -68,7 +68,7 @@ public class Usluga implements Serializable{
 		this.opisUsluge = opisUsluge;
 	}
 
-	public int getProvizija() {
+	public double getProvizija() {
 		return provizija;
 	}
 
