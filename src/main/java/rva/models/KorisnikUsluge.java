@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class KorisnikUsluge implements Serializable {
 	private String prezime;
 	private String maticniBroj;
 	
-	@OneToMany(mappedBy = "korisnikUsluge")
+	@OneToMany(mappedBy = "korisnikUsluge", cascade = CascadeType.REMOVE)
 	private List<Usluga> usluge;
 	
 	public KorisnikUsluge() {

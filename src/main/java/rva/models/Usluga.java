@@ -3,6 +3,8 @@ package rva.models;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,10 +26,12 @@ public class Usluga implements Serializable{
 	private Date datumUgovora;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "korisnikUsluge")
 	private KorisnikUsluge korisnikUsluge;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "filijala")
 	private Filijala filijala;
 	

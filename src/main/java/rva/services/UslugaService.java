@@ -1,6 +1,7 @@
 package rva.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -14,4 +15,5 @@ public interface UslugaService extends CrudService<Usluga> {
 	List<Usluga> getUslugasByProvizijaLessThan(double provizija);
 	List<Usluga> findByForeignKey(Filijala filijala);
 	List<Usluga> findByForeignKey(KorisnikUsluge korisnikUsluge);
+	
 }

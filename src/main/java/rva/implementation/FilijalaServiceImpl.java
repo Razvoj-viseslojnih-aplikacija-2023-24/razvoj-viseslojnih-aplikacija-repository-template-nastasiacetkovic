@@ -25,7 +25,10 @@ public class FilijalaServiceImpl implements FilijalaService {
 	public boolean existsById(int id) {
 		return repo.existsById(id);
 	}
-
+	@Override
+	public Optional<Filijala> findById(int id){
+		return repo.findById(id);
+	}
 	@Override
 	public Filijala create(Filijala t) {
 		return repo.save(t);

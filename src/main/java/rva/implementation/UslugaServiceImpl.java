@@ -27,7 +27,10 @@ public class UslugaServiceImpl implements UslugaService {
 	public boolean existsById(int id) {
 		return repo.existsById(id);
 	}
-
+	@Override
+	public Optional<Usluga> findById(int id){
+		return repo.findById(id);
+	}
 	@Override
 	public Usluga create(Usluga t) {
 		return repo.save(t);
@@ -62,5 +65,6 @@ public class UslugaServiceImpl implements UslugaService {
 	public List<Usluga> findByForeignKey(KorisnikUsluge korisnikUsluge) {
 		return repo.findByKorisnikUsluge(korisnikUsluge);
 	}
+
 
 }

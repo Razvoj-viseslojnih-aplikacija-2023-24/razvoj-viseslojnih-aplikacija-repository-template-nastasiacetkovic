@@ -15,6 +15,7 @@ public interface CrudService<T> {
 	T create(T t);
 	
 	Optional<T> update(T t, int id);
+	Optional<T> findById(int id);
 	
 	void delete(int id);
 }

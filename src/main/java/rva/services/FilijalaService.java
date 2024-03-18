@@ -1,6 +1,7 @@
 package rva.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -12,4 +13,5 @@ public interface FilijalaService extends CrudService<Filijala> {
 
 	List<Filijala> getFilijalasByPosedujeSefEquals(boolean posedujeSef);
 	List<Filijala> findByForeignKey(Banka banka);
+
 }

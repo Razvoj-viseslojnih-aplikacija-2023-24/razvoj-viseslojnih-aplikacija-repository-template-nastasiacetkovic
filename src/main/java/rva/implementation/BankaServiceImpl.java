@@ -24,7 +24,10 @@ public class BankaServiceImpl implements BankaService {
 	public boolean existsById(int id) {
 		return repo.existsById(id);
 	}
-
+	@Override
+	public Optional<Banka> findById(int id){
+		return repo.findById(id);
+	}
 	@Override
 	public Banka create(Banka t) {
 		return repo.save(t);

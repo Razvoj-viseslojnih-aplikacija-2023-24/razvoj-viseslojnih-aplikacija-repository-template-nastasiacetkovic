@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import rva.models.Filijala;
 import rva.models.KorisnikUsluge;
 import rva.repository.KorisnikUslugeRepository;
 import rva.repository.UslugaRepository;
@@ -24,6 +25,10 @@ public class KorisnikUslugeServiceImpl implements KorisnikUslugeService {
 	@Override
 	public boolean existsById(int id) {
 		return repo.existsById(id);
+	}
+	@Override
+	public Optional<KorisnikUsluge> findById(int id){
+		return repo.findById(id);
 	}
 
 	@Override
