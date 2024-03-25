@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +26,7 @@ public class KorisnikUsluge implements Serializable {
 	private String prezime;
 	private String maticniBroj;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "korisnikUsluge", cascade = CascadeType.REMOVE)
 	private List<Usluga> usluge;
 	

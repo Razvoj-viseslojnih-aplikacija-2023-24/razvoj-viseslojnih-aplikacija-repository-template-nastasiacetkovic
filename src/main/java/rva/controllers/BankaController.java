@@ -35,7 +35,7 @@ public class BankaController {
 		if(banka.isPresent()) {
 			return ResponseEntity.ok(banka.get());
 		}
-		return ResponseEntity.status(404).body("Resource with requested ID: " + id +
+		return ResponseEntity.status(400).body("Resource with requested ID: " + id +
 				"does not exist");
 	}
 	
@@ -43,7 +43,7 @@ public class BankaController {
 	public ResponseEntity<?> getBankasByNaziv(@PathVariable String naziv){
 		List<Banka> banks = service.getBankasByNazivContainingIgnoreCase(naziv);
 		if(banks.isEmpty()) {
-			ResponseEntity.status(404).body("Resources with Naziv: " + naziv +
+			ResponseEntity.status(400).body("Resources with Naziv: " + naziv +
 					"do not exist");
 			
 		}
@@ -56,7 +56,7 @@ public class BankaController {
 			return ResponseEntity.status(409).body("Resource already exists");
 		}
 		Banka savedBanka = service.create(banka);
-		URI uri = URI.create("/banka/id" + savedBanka.getId());
+		URI uri = URI.create("/banka/" + savedBanka.getId());
 		return ResponseEntity.created(uri).body(savedBanka);
 		
 	}
@@ -75,8 +75,7 @@ public class BankaController {
 	public ResponseEntity<?> deleteBanka(@PathVariable int id){
 		if(service.existsById(id)) {
 		service.delete(id);
-		return ResponseEntity.ok("Resource with ID: " + id + "has been"
-				+ "successfully deleted");
+		return ResponseEntity.ok("Resource with ID: " + id + "has been successfully deleted");
 	}
 		return ResponseEntity.ok("Resource with ID: " + id + 
 				 "couldn't be successfully deleted");

@@ -30,11 +30,11 @@ public class Filijala implements Serializable{
 	private int brojPultova;
 	private boolean posedujeSef;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "filijala", cascade = CascadeType.REMOVE)
 	private List<Usluga> usluga;
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name = "banka")
 	private Banka banka;
 	

@@ -26,12 +26,10 @@ public class Usluga implements Serializable{
 	private Date datumUgovora;
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name = "korisnikUsluge")
 	private KorisnikUsluge korisnikUsluge;
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name = "filijala")
 	private Filijala filijala;
 	
