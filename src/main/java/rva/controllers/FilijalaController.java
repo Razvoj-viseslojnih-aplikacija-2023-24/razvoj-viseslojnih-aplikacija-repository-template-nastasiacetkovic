@@ -50,10 +50,10 @@ public class FilijalaController {
 	}
 	
 	@GetMapping("/filijala/sef/{sef}")
-	public ResponseEntity<?> getFilijalasBySef(@PathVariable boolean posedujeSefa){
-		List<Filijala> filijalas = service.getFilijalasByPosedujeSefEquals(posedujeSefa);
+	public ResponseEntity<?> getFilijalasBySef(@PathVariable boolean sef){
+		List<Filijala> filijalas = service.getFilijalasByPosedujeSefEquals(sef);
 		if(filijalas.isEmpty()) {
-			ResponseEntity.status(400).body("Resources with sef: " + posedujeSefa +
+			ResponseEntity.status(400).body("Resources with sef: " + sef +
 					"do not exist");
 			
 		}

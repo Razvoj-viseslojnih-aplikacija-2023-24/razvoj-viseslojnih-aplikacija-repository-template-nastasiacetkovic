@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import rva.models.Banka;
 import rva.models.Filijala;
@@ -22,6 +23,8 @@ import rva.services.FilijalaService;
 import rva.services.KorisnikUslugeService;
 import rva.services.UslugaService;
 
+
+@RestController
 public class UslugaController {
 
 	@Autowired
@@ -48,10 +51,10 @@ public class UslugaController {
 	}
 	
 	@GetMapping("/usluga/provizija/{provizija}")
-	public ResponseEntity<?> getBankasByNaziv(@PathVariable double provizija){
+	public ResponseEntity<?> getUslugasByProvizija(@PathVariable double provizija){
 		List<Usluga> uslugas = service.getUslugasByProvizijaLessThan(provizija);
 		if(uslugas.isEmpty()) {
-			ResponseEntity.status(400).body("Resources with provizija: " + provizija +
+			return ResponseEntity.status(400).body("Resources with provizija: " + provizija +
 					"do not exist");
 			
 		}
@@ -59,7 +62,7 @@ public class UslugaController {
 	}
 	
 	@PostMapping("/usluga")
-	public ResponseEntity<?> createBanka(@RequestBody Usluga usluga){
+	public ResponseEntity<?> createUsluga(@RequestBody Usluga usluga){
 		if(service.existsById(usluga.getId())) {
 			return ResponseEntity.status(409).body("Resource already exists");
 		}

@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import rva.models.KorisnikUsluge;
 import rva.services.KorisnikUslugeService;
 
+@RestController
 public class KorisnikUslugeController {
 
 	@Autowired
@@ -41,7 +43,7 @@ public class KorisnikUslugeController {
 	public ResponseEntity<?> getKorisnikUslugesByNaziv(@PathVariable String maticniBroj){
 		List<KorisnikUsluge> korisnik = service.getKorisnikUslugesByMaticniBrojContainingIgnoreCase(maticniBroj);
 		if(korisnik.isEmpty()) {
-			ResponseEntity.status(400).body("Resources with Naziv: " + maticniBroj +
+			return ResponseEntity.status(400).body("Resources with maticni broj: " + maticniBroj +
 					"do not exist");
 			
 		}

@@ -43,7 +43,7 @@ public class BankaController {
 	public ResponseEntity<?> getBankasByNaziv(@PathVariable String naziv){
 		List<Banka> banks = service.getBankasByNazivContainingIgnoreCase(naziv);
 		if(banks.isEmpty()) {
-			ResponseEntity.status(400).body("Resources with Naziv: " + naziv +
+			return ResponseEntity.status(400).body("Resources with Naziv: " + naziv +
 					"do not exist");
 			
 		}

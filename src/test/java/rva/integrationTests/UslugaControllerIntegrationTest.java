@@ -79,8 +79,7 @@ class UslugaControllerIntegrationTest {
 	@Test
 	@Order(3)
 	void testGetUslugaByProvizija() {
-		double provizija = 2.0;
-		
+		double provizija = 12;
 		ResponseEntity<List<Usluga>> response = template
 				.exchange("/usluga/provizija/" + provizija, HttpMethod.GET,
 						null, 
@@ -92,7 +91,7 @@ class UslugaControllerIntegrationTest {
 	assertNotNull(usluge.get(0));
 	
 	for(Usluga u : usluge) {
-		assertTrue(u.getProvizija() > provizija);
+		assertTrue(u.getProvizija() < provizija);
 	}
 	}
 	
