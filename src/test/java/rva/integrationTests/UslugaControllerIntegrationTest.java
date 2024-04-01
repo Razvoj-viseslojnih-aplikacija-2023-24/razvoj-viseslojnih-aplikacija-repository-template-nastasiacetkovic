@@ -5,9 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -16,6 +19,8 @@ import org.springframework.http.ResponseEntity;
 
 import rva.models.Usluga;
 
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class UslugaControllerIntegrationTest {
 
 	@Autowired
@@ -160,14 +165,31 @@ class UslugaControllerIntegrationTest {
 	@Test
 	@Order(7)
 	void testGetUslugaByFilijala() {
-		getHighestId();
-		ResponseEntity<String> response = template
-				.exchange("/usluga/id/" + highestId, HttpMethod.DELETE,
-						null, String.class);
+		long filijalaId = 1;
+		ResponseEntity<List<Usluga>> response = template.exchange("/usluga/filijala/" + filijalaId, HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<Usluga>>(){});
 		int statusCode = response.getStatusCode().value();
+		List<Usluga> usluge =  response.getBody();
 		
-		assertEquals(200, statusCode);
-		assertTrue(response.getBody().contains("has been successfully deleted"));
-
+		assertEquals(200, statusCode );
+		assertNotNull(usluge.get(0));
+		for(Usluga u: usluge) {
+			assertTrue(u.getFilijala().getId() == 1);
+		}
+	}
+	@Test
+	@Order(8)
+	void testGetUslugaByKorisnikUsluge() {
+		long korisnikUslugeId = 1;
+		ResponseEntity<List<Usluga>> response = template.exchange("/usluga/korisnik_usluge/" + korisnikUslugeId, HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<Usluga>>(){});
+		int statusCode = response.getStatusCode().value();
+		List<Usluga> usluge =  response.getBody();
+		
+		assertEquals(200, statusCode );
+		assertNotNull(usluge.get(0));
+		for(Usluga u: usluge) {
+			assertTrue(u.getKorisnikUsluge().getId() == 1);
+		}
 	}
 }

@@ -27,6 +27,8 @@ public class UslugaController {
 	@Autowired
 	private FilijalaService filijalaService;
 	@Autowired
+	private KorisnikUslugeService korisnikUslugeService;
+	@Autowired
 	private UslugaService service;
 
 	
@@ -45,7 +47,7 @@ public class UslugaController {
 				"does not exist");
 	}
 	
-	@GetMapping("/banka/provizija/{provizija}")
+	@GetMapping("/usluga/provizija/{provizija}")
 	public ResponseEntity<?> getBankasByNaziv(@PathVariable double provizija){
 		List<Usluga> uslugas = service.getUslugasByProvizijaLessThan(provizija);
 		if(uslugas.isEmpty()) {
@@ -87,11 +89,27 @@ public class UslugaController {
 				 "couldn't be successfully deleted");
 }
 	
-	@GetMapping("/usluga/filijala/{foreignKey")
+	@GetMapping("/usluga/filijala/{foreignKey}")
 	public ResponseEntity<?> getUslugeByFilijala(@PathVariable int foreignKey){
 		Optional<Filijala> filijala = filijalaService.findById(foreignKey);
 		if(filijala.isPresent()) {
 			List<Usluga> usluge = service.findByForeignKey(filijala.get());
+			if(usluge.isEmpty()) {
+				return ResponseEntity.status(404).body("Resources with foreign key: " +
+						foreignKey + "do not exist");
+			}
+			else {
+				return ResponseEntity.ok(usluge);
+			}
+		}
+			return ResponseEntity.status(400).body("Invalid foreign key: " + foreignKey);
+		}
+	
+	@GetMapping("/usluga/korisnik_usluge/{foreignKey}")
+	public ResponseEntity<?> getUslugeByKorisnikUsluge(@PathVariable int foreignKey){
+		Optional<KorisnikUsluge> korisnikUsluge = korisnikUslugeService.findById(foreignKey);
+		if(korisnikUsluge.isPresent()) {
+			List<Usluga> usluge = service.findByForeignKey(korisnikUsluge.get());
 			if(usluge.isEmpty()) {
 				return ResponseEntity.status(404).body("Resources with foreign key: " +
 						foreignKey + "do not exist");

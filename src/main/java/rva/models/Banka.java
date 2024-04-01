@@ -81,6 +81,16 @@ public class Banka implements Serializable {
 	public void setPIB(int pIB) {
 		PIB = pIB;
 	}
+
+
+	public List<Filijala> getFilijale() {
+		return filijale;
+	}
+
+
+	public void setFilijale(List<Filijala> filijale) {
+		this.filijale = filijale;
+	}
 	
 	
 }

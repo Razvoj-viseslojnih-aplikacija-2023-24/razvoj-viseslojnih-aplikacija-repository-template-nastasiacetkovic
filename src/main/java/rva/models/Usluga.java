@@ -74,16 +74,32 @@ public class Usluga implements Serializable{
 		return provizija;
 	}
 
-	public void setProvizija(int provizija) {
-		this.provizija = provizija;
-	}
-
 	public Date getDatumUgovora() {
 		return datumUgovora;
 	}
 
 	public void setDatumUgovora(Date datumUgovora) {
 		this.datumUgovora = datumUgovora;
+	}
+
+	public Filijala getFilijala() {
+		return filijala;
+	}
+
+	public void setFilijala(Filijala filijala) {
+		this.filijala = filijala;
+	}
+
+	public KorisnikUsluge getKorisnikUsluge() {
+		return korisnikUsluge;
+	}
+
+	public void setKorisnikUsluge(KorisnikUsluge korisnikUsluge) {
+		this.korisnikUsluge = korisnikUsluge;
+	}
+
+	public void setProvizija(double provizija) {
+		this.provizija = provizija;
 	}
 	
 	

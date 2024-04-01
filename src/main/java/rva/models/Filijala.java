@@ -49,7 +49,7 @@ public class Filijala implements Serializable{
 		this.brojPultova = brojPultova;
 		this.posedujeSef = posedujeSef;
 	}
-	public int setId() {
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -72,6 +72,22 @@ public class Filijala implements Serializable{
 	}
 	public void setPosedujeSef(boolean posedujeSef) {
 		this.posedujeSef = posedujeSef;
+	}
+
+	public List<Usluga> getUsluga() {
+		return usluga;
+	}
+
+	public void setUsluga(List<Usluga> usluga) {
+		this.usluga = usluga;
+	}
+
+	public Banka getBanka() {
+		return banka;
+	}
+
+	public void setBanka(Banka banka) {
+		this.banka = banka;
 	}
 	
 	
