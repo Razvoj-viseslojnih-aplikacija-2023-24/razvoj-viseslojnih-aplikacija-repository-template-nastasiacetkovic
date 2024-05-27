@@ -11,7 +11,7 @@ import { HomeComponent } from './components/utility/home/home.component';
 const routes: Routes = [
   {path:'banka', component: BankaComponent},
   {path:'korisnik_usluge', component: KorisnikUslugeComponent},
-  {path:'usluge', component: UslugaComponent},
+  {path:'usluga', component: UslugaComponent},
   {path:'filijala', component: FilijalaComponent},
   {path:'home', component: HomeComponent},
   {path:'author', component: AuthorComponent},

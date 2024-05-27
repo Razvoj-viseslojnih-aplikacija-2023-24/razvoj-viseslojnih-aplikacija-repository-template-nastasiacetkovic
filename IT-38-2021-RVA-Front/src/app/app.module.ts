@@ -18,7 +18,24 @@ import { UslugaComponent } from './components/main/usluga/usluga.component';
 import { AboutComponent } from './components/utility/about/about.component';
 import { AuthorComponent } from './components/utility/author/author.component';
 import { HomeComponent } from './components/utility/home/home.component';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatTableModule } from '@angular/material/table'
 import { HttpClientModule } from '@angular/common/http';
+import { BankaDialogComponent } from './components/dialogs/banka-dialog/banka-dialog.component';
+import {MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {FormsModule} from '@angular/forms';
+import { FilijalaDialogComponent } from './components/dialogs/filijala-dialog/filijala-dialog.component';
+import { KorisnikUslugeDialogComponent } from './components/dialogs/korisnik-usluge-dialog/korisnik-usluge-dialog.component';
+import { UslugaDialogComponent } from './components/dialogs/usluga-dialog/usluga-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +46,11 @@ import { HttpClientModule } from '@angular/common/http';
     UslugaComponent,
     AboutComponent,
     AuthorComponent,
-    HomeComponent
+    HomeComponent,
+    BankaDialogComponent,
+    FilijalaDialogComponent,
+    KorisnikUslugeDialogComponent,
+    UslugaDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +62,19 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatGridListModule,
     MatExpansionModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSortModule,
+    MatPaginatorModule,
     HttpClientModule
 
   ],

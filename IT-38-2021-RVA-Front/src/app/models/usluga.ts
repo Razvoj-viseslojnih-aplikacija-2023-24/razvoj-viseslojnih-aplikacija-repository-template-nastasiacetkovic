@@ -8,6 +8,6 @@ export class Usluga {
     provizija!:number;
     datumUgovora!:Date;
     filijala!:Filijala;
-    korisnik_usluge!: KorisnikUsluge;
+    korisnikUsluge!: KorisnikUsluge;
 
 }
